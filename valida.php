@@ -28,13 +28,25 @@
         private function comprobarDisponibilidad() {
             echo "Id Salon: $this->id_salon_existente <br /> Id Inicio: $this->id_ini_existente <br /> Id Fin: $this->id_fin_existente
                   <br /><br />Id Salon Nuevo: $this->id_salon <br /> Id Inicio Nuevo: $this->id_ini <br /> Id Fin Nuevo: $this->id_fin";
-            if ($this->id_ini_existente == $this->id_fin) {
-                echo "<br /><br /><br />EXISTE UNA RESERVACION QUE INICIA A LAS $this->id_fin DEBES DEJAR MEDIA HORA ENTRE EVENTOS";
-            } elseif ($this->id_fin_existente == $this->id_ini) {
-                echo "<br /><br /><br />EXISTE UNA RESERVACION QUE TERMINA A LAS $this->id_ini DEBES DEJAR MEDIA HORA ENTRE EVENTOS";
+            if ($this->id_salon_existente == $this->id_salon) {
+                if ($this->id_ini_existente == $this->id_ini) {
+                    echo "<br /><br /><br />YA EXISTE UNA RESERVACION QUE INICIA A LAS $this->id_ini";
+                } else {
+                    if ($this->id_ini_existente == $this->id_fin) {
+                        echo "<br /><br /><br />EXISTE UNA RESERVACION QUE INICIA A LAS $this->id_fin DEBES DEJAR MEDIA HORA ENTRE EVENTOS";
+                    } elseif ($this->id_fin_existente == $this->id_ini) {
+                        echo "<br /><br /><br />EXISTE UNA RESERVACION QUE TERMINA A LAS $this->id_ini DEBES DEJAR MEDIA HORA ENTRE EVENTOS";
+                    } elseif (($this->id_fin > $this->id_ini_existente) && ($this->id_fin <= $this->id_fin_existente)) {
+                        echo "<br /><br /><br />EXISTE UNA RESERVACIÓN DE $this->id_ini_existente A $this->id_fin_existente";
+                    }
+                    else {
+                        echo "<br /><br /><br />HACER RESERVACIÓN";
+                    }
+                }
             } else {
-                echo "<br /><br /><br />HACER RESERVACIÓN";
+                echo "<br /><br /><br />SALON DISPONIBLE!!!";
             }
+
         }
 
     }
