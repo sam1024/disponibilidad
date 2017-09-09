@@ -1,10 +1,6 @@
 <?php
 
-    $id_salon = $_POST['id_salon'];
-    $id_ini = $_POST['id_ini'];
-    $id_fin = $_POST['id_fin'];
-
-    $valida = new Valida($id_salon, $id_ini, $id_fin);
+    $valida = new Valida($_POST['id_salon'], $_POST['id_ini'], $_POST['id_fin']);
 
     class Valida {
 
