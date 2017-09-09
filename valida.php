@@ -38,6 +38,8 @@
                         echo "<br /><br /><br />EXISTE UNA RESERVACION QUE TERMINA A LAS $this->id_ini DEBES DEJAR MEDIA HORA ENTRE EVENTOS";
                     } elseif (($this->id_fin > $this->id_ini_existente) && ($this->id_fin <= $this->id_fin_existente)) {
                         echo "<br /><br /><br />EXISTE UNA RESERVACIÓN DE $this->id_ini_existente A $this->id_fin_existente";
+                    } elseif (($this->id_ini >= $this->id_ini_existente) && ($this->id_ini <= $this->id_fin_existente)) {
+                        echo "<br /><br /><br />EXISTE UNA RESERVACIÓN DE $this->id_ini_existente A $this->id_fin_existente";
                     }
                     else {
                         echo "<br /><br /><br />HACER RESERVACIÓN";
